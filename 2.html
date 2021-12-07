@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gisteresis</title>
+    <link rel="stylesheet" href="2.css">
+</head>
+<body>
+    <div class="grph">
+        <div class="gist" id="gist"></div>
+        <input type="range" min="1" max="7" value="50" class="slider" id="myRange">
+    </div>
+    <script>
+        var slider = document.getElementById("myRange");
+
+        slider.oninput = function() {
+            document.getElementById("gist").style.backgroundImage=`url(images/tes/${this.value}.svg`;
+        }
+    </script>
+</body>
+</html>

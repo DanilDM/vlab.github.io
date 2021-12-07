@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8"> 
+    <title>Inductsiuniy strum</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+    <div class="main">
+        <div class="slidecontainer">
+            <div class="galv"><div class="arrow" id="arr"></div><div class="hole"></div></div>
+            <div class="magnet" id="mag"></div>
+            <input type="range" min="1" max="2000" value="50" class="slider" id="myRange">
+            <h2>Швидкість = <span id="vel"></span></h2> 
+        </div>
+        <div class="qscd">text
+            <button class="smenka" onclick="smenka()"></button>
+            <button class="smenka" onclick="size()"></button>
+        </div>
+        <script>
+            var slider = document.getElementById("myRange");
+            var previous = 0;
+            var pspeed = 0;
+            var zxc = 1; 
+            var output = document.getElementById("vel");
+            // output.innerHTML = slider.value; 
+
+            slider.oninput = function() {
+                output.innerHTML = Math.abs(slider.value - previous);
+                previous = slider.value;
+                speed = slider.value/2000*252-12.5;
+                document.getElementById("mag").style.left=`${Math.round(speed)+(window.screen.width*0.2)+50}px`;
+             }
+            
+            function move(){
+                let abc = (Math.round(speed-pspeed)/2)*zxc*size2*size2;
+                if(abc>35){abc = 35;}
+                if(abc<-35){abc = -35;}
+                document.getElementById("arr").style.transform=`rotate(${abc}deg`;
+                pspeed = speed;
+            }setInterval(move,50);
+
+            function smenka(){
+                zxc = -1*zxc;
+                document.getElementById("mag").style.transform=`scaleY(${zxc*size2})`;
+            }
+            var size1 = 0.8;
+            var size2 = 1;
+            var buf;
+            function size(){
+                buf = size1;
+                size1 = size2;
+                size2=buf;
+                document.getElementById("mag").style.transform=`scaleY(${size2*zxc})`;
+            }
+        </script>
+    </div>
+</body>
+</html>

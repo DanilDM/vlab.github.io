@@ -1,0 +1,53 @@
+body{
+    background-color: #cacaca;
+}
+.grph{
+    position: absolute;
+    width: 60vw;
+    height: 1000px;
+    background-image: url(images/grph.svg);
+    background-repeat: no-repeat;
+    margin-left: 20vw;
+}
+
+.gist{
+    position: relative;
+    top: 4.4vw;
+    left: 7%;
+    width: 32vw;
+    height: calc(32vw*0.7);
+    background-repeat: no-repeat;
+    background-image: url(images/tes/7.svg);
+    transition: background-image 0.3s;
+}
+
+
+.slider {
+    top: 10vw;
+    left: 41vw;
+    width: 15.6vw;
+    position: absolute;
+    -webkit-appearance: none;
+    background: #555555;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 2px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #7e7e7e;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #7e7e7e;
+    cursor: pointer;
+}
